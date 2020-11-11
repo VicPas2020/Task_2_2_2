@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CARS</title>
+</head>
+<body>
+<div>
+    <ul>
+
+        <th:block th:each="cars : ${printCars}">
+            <li th:text="${cars.getBrand()}  +  ${cars.getPrice()} + ${cars.isAvailable()}"></li>
+        </th:block>
+
+    </ul>
+
+</div>
+</body>
+</html>
