@@ -16,14 +16,14 @@ public class CarsController   {
 	}
 
 	@GetMapping(value = "/cars" )
-	public String printCountedCars(@RequestParam(required = false) String count,  ModelMap model) {
+	public String printCountedCars(@RequestParam(required = false) Long count,  ModelMap model) {
 
-		if (count==null || Long.parseLong(count) > 5) {
+		if (count==null ||  count > 5L) {
 			model.addAttribute("printCars", serv.getCars());
 		}
 		else {
 
-		Object[] objects = serv.getCars().stream().limit(Long.parseLong(count)).toArray();
+		Object[] objects = serv.getCars().stream().limit(count).toArray();
 		model.addAttribute("printCars", objects);}
 
 		return "cars";
